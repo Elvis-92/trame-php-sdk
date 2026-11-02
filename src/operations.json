@@ -1,0 +1,2621 @@
+{
+  "openapi": "3.1.0",
+  "version": "1.0.0",
+  "operations": {
+    "acceptInvitation": {
+      "method": "POST",
+      "path": "/invitations/accept",
+      "parameters": [],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [],
+      "idempotencyRequired": false,
+      "portalOriginRequired": true,
+      "sessionOriginRequired": false
+    },
+    "acknowledgeContradiction": {
+      "method": "POST",
+      "path": "/payments/unattributed/{id}/acknowledge",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "addWebhookEndpoint": {
+      "method": "POST",
+      "path": "/webhooks/endpoints",
+      "parameters": [],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "attachUnattributedPayment": {
+      "method": "POST",
+      "path": "/payments/unattributed/{id}/attach",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "Idempotency-Key",
+          "in": "header",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": true,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "cancelInvitation": {
+      "method": "DELETE",
+      "path": "/members/invitations/{id}",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "changeMemberRole": {
+      "method": "PUT",
+      "path": "/members/{id}/role",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "closeOtherSessions": {
+      "method": "DELETE",
+      "path": "/account/sessions",
+      "parameters": [],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "closeOwnSession": {
+      "method": "DELETE",
+      "path": "/account/sessions/{id}",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "closeSession": {
+      "method": "DELETE",
+      "path": "/session",
+      "parameters": [],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "confirmAddressChange": {
+      "method": "POST",
+      "path": "/account/email/confirm",
+      "parameters": [],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [],
+      "idempotencyRequired": false,
+      "portalOriginRequired": true,
+      "sessionOriginRequired": false
+    },
+    "confirmPayment": {
+      "method": "POST",
+      "path": "/payments/{id}/confirm",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "Idempotency-Key",
+          "in": "header",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": true,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "connectFedapay": {
+      "method": "PUT",
+      "path": "/providers/fedapay",
+      "parameters": [],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "connectPawapay": {
+      "method": "PUT",
+      "path": "/providers/pawapay",
+      "parameters": [],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "createApiKey": {
+      "method": "POST",
+      "path": "/api-keys",
+      "parameters": [],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "createBeneficiary": {
+      "method": "POST",
+      "path": "/beneficiaries",
+      "parameters": [],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "createPayment": {
+      "method": "POST",
+      "path": "/payments",
+      "parameters": [
+        {
+          "name": "Idempotency-Key",
+          "in": "header",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": true,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "createPayout": {
+      "method": "POST",
+      "path": "/payouts",
+      "parameters": [
+        {
+          "name": "Idempotency-Key",
+          "in": "header",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": true,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "createRule": {
+      "method": "POST",
+      "path": "/rules",
+      "parameters": [],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "createRuleVersion": {
+      "method": "POST",
+      "path": "/rules/{key}/versions",
+      "parameters": [
+        {
+          "name": "key",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "currentPilotRequest": {
+      "method": "GET",
+      "path": "/pilot-requests/current",
+      "parameters": [],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "declarePayment": {
+      "method": "POST",
+      "path": "/payments/declared",
+      "parameters": [
+        {
+          "name": "Idempotency-Key",
+          "in": "header",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": true,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "declarePayout": {
+      "method": "POST",
+      "path": "/payouts/declared",
+      "parameters": [
+        {
+          "name": "Idempotency-Key",
+          "in": "header",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": true,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "declareRefund": {
+      "method": "POST",
+      "path": "/payments/{id}/refunds/declared",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "Idempotency-Key",
+          "in": "header",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": true,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "disconnectFedapay": {
+      "method": "DELETE",
+      "path": "/providers/fedapay",
+      "parameters": [],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "disconnectPawapay": {
+      "method": "DELETE",
+      "path": "/providers/pawapay",
+      "parameters": [],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "downloadJournal": {
+      "method": "GET",
+      "path": "/periods/{period}/journal",
+      "parameters": [
+        {
+          "name": "period",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json",
+        "text/csv"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "downloadTestStatement": {
+      "method": "GET",
+      "path": "/statements/test-sample",
+      "parameters": [
+        {
+          "name": "provider",
+          "in": "query",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "country",
+          "in": "query",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "discrepancies[]",
+          "in": "query",
+          "required": false,
+          "schemaType": "array",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json",
+        "text/csv"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "explainDiscrepancy": {
+      "method": "POST",
+      "path": "/reconciliation/discrepancies/{id}/explanation",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "Idempotency-Key",
+          "in": "header",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": true,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "getAccount": {
+      "method": "GET",
+      "path": "/account",
+      "parameters": [],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "getBeneficiaryBalance": {
+      "method": "GET",
+      "path": "/beneficiaries/{id}/balance",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "currency",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "getBeneficiaryStatement": {
+      "method": "GET",
+      "path": "/beneficiaries/{id}/statement",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "currency",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "from",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "to",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "format",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json",
+        "application/pdf",
+        "text/csv"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "getFeeVarianceReport": {
+      "method": "GET",
+      "path": "/finance/fees",
+      "parameters": [
+        {
+          "name": "currency",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "from",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "to",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schemaType": "integer",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "getMorningFinanceSummary": {
+      "method": "GET",
+      "path": "/finance/morning",
+      "parameters": [
+        {
+          "name": "currency",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "getPayment": {
+      "method": "GET",
+      "path": "/payments/{id}",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "getPayout": {
+      "method": "GET",
+      "path": "/payouts/{id}",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "getRule": {
+      "method": "GET",
+      "path": "/rules/{key}",
+      "parameters": [
+        {
+          "name": "key",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "getSession": {
+      "method": "GET",
+      "path": "/session",
+      "parameters": [],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "getStatementCoverage": {
+      "method": "GET",
+      "path": "/statements/coverage",
+      "parameters": [],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "getStatementProfile": {
+      "method": "GET",
+      "path": "/statement-profiles/{provider}",
+      "parameters": [
+        {
+          "name": "provider",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "getStory": {
+      "method": "GET",
+      "path": "/stories/{id}",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "getTreasuryForecast": {
+      "method": "GET",
+      "path": "/finance/treasury",
+      "parameters": [
+        {
+          "name": "currency",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "days",
+          "in": "query",
+          "required": false,
+          "schemaType": "integer",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "identifyProspect": {
+      "method": "POST",
+      "path": "/prospects",
+      "parameters": [],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "importStatement": {
+      "method": "POST",
+      "path": "/statements",
+      "parameters": [
+        {
+          "name": "Idempotency-Key",
+          "in": "header",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": true,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "inviteMember": {
+      "method": "POST",
+      "path": "/members/invitations",
+      "parameters": [],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "listApiKeys": {
+      "method": "GET",
+      "path": "/api-keys",
+      "parameters": [],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "listBeneficiaries": {
+      "method": "GET",
+      "path": "/beneficiaries",
+      "parameters": [
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schemaType": "integer",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "starting_after",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "currency",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "listDiscrepancies": {
+      "method": "GET",
+      "path": "/reconciliation/discrepancies",
+      "parameters": [
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "settled",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "starting_after",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schemaType": "integer",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "listHeldBeneficiaryMoney": {
+      "method": "GET",
+      "path": "/beneficiaries/held",
+      "parameters": [
+        {
+          "name": "currency",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "listMembers": {
+      "method": "GET",
+      "path": "/members",
+      "parameters": [],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "listOwnSessions": {
+      "method": "GET",
+      "path": "/account/sessions",
+      "parameters": [],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "listPayments": {
+      "method": "GET",
+      "path": "/payments",
+      "parameters": [
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schemaType": "integer",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "starting_after",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "required": false,
+          "schemaType": null,
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "evidence",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "landed_with",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "beneficiary_id",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "from",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "to",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "listPeriods": {
+      "method": "GET",
+      "path": "/periods",
+      "parameters": [],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "listRules": {
+      "method": "GET",
+      "path": "/rules",
+      "parameters": [],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "listSandboxScenarios": {
+      "method": "GET",
+      "path": "/sandbox/scenarios",
+      "parameters": [],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "listStatementImports": {
+      "method": "GET",
+      "path": "/statements",
+      "parameters": [
+        {
+          "name": "starting_after",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schemaType": "integer",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "listStories": {
+      "method": "GET",
+      "path": "/stories",
+      "parameters": [
+        {
+          "name": "starting_after",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schemaType": "integer",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "listUnattributedPayments": {
+      "method": "GET",
+      "path": "/payments/unattributed",
+      "parameters": [
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schemaType": "integer",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "starting_after",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "listWebhookDeliveries": {
+      "method": "GET",
+      "path": "/webhooks/deliveries",
+      "parameters": [
+        {
+          "name": "status",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schemaType": "integer",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "starting_after",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "listWebhookEndpoints": {
+      "method": "GET",
+      "path": "/webhooks/endpoints",
+      "parameters": [],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "lockPeriod": {
+      "method": "POST",
+      "path": "/periods/{period}/lock",
+      "parameters": [
+        {
+          "name": "period",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "openSession": {
+      "method": "POST",
+      "path": "/session",
+      "parameters": [],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [],
+      "idempotencyRequired": false,
+      "portalOriginRequired": true,
+      "sessionOriginRequired": false
+    },
+    "openSharedStatement": {
+      "method": "POST",
+      "path": "/statement-shares/open",
+      "parameters": [],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [],
+      "idempotencyRequired": false,
+      "portalOriginRequired": true,
+      "sessionOriginRequired": false
+    },
+    "previewInvitation": {
+      "method": "POST",
+      "path": "/invitations/preview",
+      "parameters": [],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [],
+      "idempotencyRequired": false,
+      "portalOriginRequired": true,
+      "sessionOriginRequired": false
+    },
+    "previewStatement": {
+      "method": "POST",
+      "path": "/statement-profiles/{provider}/preview",
+      "parameters": [
+        {
+          "name": "provider",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "publishRuleVersion": {
+      "method": "POST",
+      "path": "/rules/{key}/versions/{version}/publish",
+      "parameters": [
+        {
+          "name": "key",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "version",
+          "in": "path",
+          "required": true,
+          "schemaType": "integer",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "reclassifyDiscrepancy": {
+      "method": "POST",
+      "path": "/reconciliation/discrepancies/{id}/reclassification",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "Idempotency-Key",
+          "in": "header",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": true,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "refundPayment": {
+      "method": "POST",
+      "path": "/payments/{id}/refunds",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "Idempotency-Key",
+          "in": "header",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": true,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "releasePayment": {
+      "method": "POST",
+      "path": "/payments/{id}/release",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "Idempotency-Key",
+          "in": "header",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": true,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "removeMember": {
+      "method": "DELETE",
+      "path": "/members/{id}",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "removeWebhookEndpoint": {
+      "method": "DELETE",
+      "path": "/webhooks/endpoints/{id}",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "renameBeneficiary": {
+      "method": "PATCH",
+      "path": "/beneficiaries/{id}",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "renameSelf": {
+      "method": "PUT",
+      "path": "/account/name",
+      "parameters": [],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "replayWebhookDelivery": {
+      "method": "POST",
+      "path": "/webhooks/deliveries/{id}/replay",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "reportEvent": {
+      "method": "POST",
+      "path": "/events",
+      "parameters": [
+        {
+          "name": "Idempotency-Key",
+          "in": "header",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": true,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "requestAddressChange": {
+      "method": "POST",
+      "path": "/account/email",
+      "parameters": [],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "requestSignInLink": {
+      "method": "POST",
+      "path": "/session/link",
+      "parameters": [],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "resendInvitation": {
+      "method": "POST",
+      "path": "/members/invitations/{id}/resend",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "reverseDeclaration": {
+      "method": "POST",
+      "path": "/reconciliation/discrepancies/{id}/reversal",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "Idempotency-Key",
+          "in": "header",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": true,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "revokeApiKey": {
+      "method": "DELETE",
+      "path": "/api-keys/{id}",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "saveStatementProfile": {
+      "method": "PUT",
+      "path": "/statement-profiles/{provider}",
+      "parameters": [
+        {
+          "name": "provider",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "shareBeneficiaryStatement": {
+      "method": "POST",
+      "path": "/beneficiaries/{id}/statement/share",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "currency",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "from",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "to",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "showFedapayConnection": {
+      "method": "GET",
+      "path": "/providers/fedapay",
+      "parameters": [],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "showPawapayConnection": {
+      "method": "GET",
+      "path": "/providers/pawapay",
+      "parameters": [],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "showPeriod": {
+      "method": "GET",
+      "path": "/periods/{period}",
+      "parameters": [
+        {
+          "name": "period",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "signUp": {
+      "method": "POST",
+      "path": "/signup",
+      "parameters": [],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "startSandboxScenario": {
+      "method": "POST",
+      "path": "/sandbox/scenarios",
+      "parameters": [
+        {
+          "name": "Idempotency-Key",
+          "in": "header",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": true,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "statementColumns": {
+      "method": "POST",
+      "path": "/statement-profiles/{provider}/columns",
+      "parameters": [
+        {
+          "name": "provider",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "storeFedapayWebhookSecret": {
+      "method": "PUT",
+      "path": "/providers/fedapay/webhook-secret",
+      "parameters": [],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "submitPilotRequest": {
+      "method": "POST",
+      "path": "/pilot-requests",
+      "parameters": [],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
+    "submitStory": {
+      "method": "POST",
+      "path": "/stories",
+      "parameters": [],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    }
+  }
+}

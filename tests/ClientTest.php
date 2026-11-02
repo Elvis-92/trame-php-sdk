@@ -135,6 +135,55 @@ final class ClientTest extends TestCase
         self::assertSame('/v1/rules/standard/versions/1/publish', $history[7]['request']->getUri()->getPath());
     }
 
+    public function test_generic_array_query_parameters_are_repeated_on_the_wire(): void
+    {
+        $history = [];
+        $handler = HandlerStack::create(new MockHandler([
+            new Response(200, ['Content-Type' => 'text/csv'], "reference,amount\n"),
+        ]));
+        $handler->push(Middleware::history($history));
+        $client = new Client('tr_test_key', new GuzzleClient(['handler' => $handler]));
+
+        $response = $client->requestOperation('downloadTestStatement', [
+            'query' => [
+                'provider' => 'fedapay',
+                'country' => 'BJ',
+                'discrepancies[]' => ['missing', 'unknown'],
+            ],
+        ]);
+
+        self::assertSame('provider=fedapay&country=BJ&discrepancies%5B%5D=missing&discrepancies%5B%5D=unknown', $history[0]['request']->getUri()->getQuery());
+        self::assertSame("reference,amount\n", $response->body());
+    }
+
+    public function test_customer_session_keeps_its_cookie_environment_and_origin_on_writes(): void
+    {
+        $history = [];
+        $handler = HandlerStack::create(new MockHandler([
+            new Response(200, [
+                'Content-Type' => 'application/json',
+                'Set-Cookie' => '__Host-trame_customer=session-cookie; Path=/; Secure; HttpOnly; SameSite=Strict',
+            ], '{}'),
+            new Response(204),
+        ]));
+        $handler->push(Middleware::history($history));
+        $client = new Client(
+            null,
+            new GuzzleClient(['handler' => $handler]),
+            sessionEnvironment: 'test',
+            sessionOrigin: 'https://portal.example.test/',
+        );
+
+        $client->requestOperation('openSession', ['body' => ['token' => 'link-token']]);
+        $client->requestOperation('closeOtherSessions');
+
+        self::assertSame('https://portal.example.test', $history[0]['request']->getHeaderLine('Origin'));
+        self::assertSame('', $history[0]['request']->getHeaderLine('Trame-Environment'));
+        self::assertSame('__Host-trame_customer=session-cookie', $history[1]['request']->getHeaderLine('Cookie'));
+        self::assertSame('test', $history[1]['request']->getHeaderLine('Trame-Environment'));
+        self::assertSame('https://portal.example.test', $history[1]['request']->getHeaderLine('Origin'));
+    }
+
     public function test_api_key_must_use_a_trame_prefix(): void
     {
         $this->expectException(InvalidArgumentException::class);
