@@ -1,0 +1,26 @@
+{
+    "name": "trame/trame-php",
+    "description": "PHP client for the Trame API",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.3",
+        "guzzlehttp/guzzle": "^7.9"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^12.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Trame\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Trame\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
