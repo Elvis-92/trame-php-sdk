@@ -876,6 +876,60 @@
       "portalOriginRequired": false,
       "sessionOriginRequired": false
     },
+    "getCoherencePosition": {
+      "method": "GET",
+      "path": "/position",
+      "parameters": [
+        {
+          "name": "currency",
+          "in": "query",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "as_of",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "from",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "to",
+          "in": "query",
+          "required": false,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
     "getFeeVarianceReport": {
       "method": "GET",
       "path": "/finance/fees",

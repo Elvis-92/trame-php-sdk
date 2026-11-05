@@ -37,6 +37,7 @@ enum OperationId: string
     case GetAccount = 'getAccount';
     case GetBeneficiaryBalance = 'getBeneficiaryBalance';
     case GetBeneficiaryStatement = 'getBeneficiaryStatement';
+    case GetCoherencePosition = 'getCoherencePosition';
     case GetFeeVarianceReport = 'getFeeVarianceReport';
     case GetMorningFinanceSummary = 'getMorningFinanceSummary';
     case GetPayment = 'getPayment';
