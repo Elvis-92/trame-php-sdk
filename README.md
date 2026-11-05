@@ -9,9 +9,10 @@ with the provider's reference.
 
 ## Installation
 
-The package is distributed from the
-[`trame-php-sdk`](https://github.com/Elvis-92/trame-php-sdk) repository. Once
-it is listed on Packagist, install it with:
+The package is available on
+[Packagist](https://packagist.org/packages/trame/trame-php) and is maintained
+in the [`trame-php-sdk`](https://github.com/Elvis-92/trame-php-sdk) repository.
+Install it with:
 
 ```bash
 composer require trame/trame-php
