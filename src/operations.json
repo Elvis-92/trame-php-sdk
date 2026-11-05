@@ -1074,6 +1074,52 @@
       "portalOriginRequired": false,
       "sessionOriginRequired": false
     },
+    "getProviderWalletComparison": {
+      "method": "GET",
+      "path": "/providers/{provider}/wallet",
+      "parameters": [
+        {
+          "name": "provider",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "country",
+          "in": "query",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        },
+        {
+          "name": "currency",
+          "in": "query",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
     "getRule": {
       "method": "GET",
       "path": "/rules/{key}",

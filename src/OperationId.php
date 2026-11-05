@@ -42,6 +42,7 @@ enum OperationId: string
     case GetMorningFinanceSummary = 'getMorningFinanceSummary';
     case GetPayment = 'getPayment';
     case GetPayout = 'getPayout';
+    case GetProviderWalletComparison = 'getProviderWalletComparison';
     case GetRule = 'getRule';
     case GetSession = 'getSession';
     case GetStatementCoverage = 'getStatementCoverage';
