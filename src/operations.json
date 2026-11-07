@@ -425,6 +425,26 @@
       "portalOriginRequired": false,
       "sessionOriginRequired": true
     },
+    "createProviderAccount": {
+      "method": "POST",
+      "path": "/providers/accounts",
+      "parameters": [],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
+    },
     "createRule": {
       "method": "POST",
       "path": "/rules",
@@ -1642,6 +1662,48 @@
       "portalOriginRequired": false,
       "sessionOriginRequired": false
     },
+    "listProviderAccounts": {
+      "method": "GET",
+      "path": "/providers/accounts",
+      "parameters": [],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
+    "listProviderCatalog": {
+      "method": "GET",
+      "path": "/providers/catalog",
+      "parameters": [],
+      "requestBodyRequired": false,
+      "requestContentTypes": [],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "apiKey": []
+        },
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": false
+    },
     "listRules": {
       "method": "GET",
       "path": "/rules",
@@ -2716,6 +2778,35 @@
       "idempotencyRequired": false,
       "portalOriginRequired": false,
       "sessionOriginRequired": false
+    },
+    "updateProviderAccount": {
+      "method": "PATCH",
+      "path": "/providers/accounts/{id}",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schemaType": "string",
+          "style": "form",
+          "explode": true
+        }
+      ],
+      "requestBodyRequired": true,
+      "requestContentTypes": [
+        "application/json"
+      ],
+      "responseContentTypes": [
+        "application/json"
+      ],
+      "security": [
+        {
+          "customerSession": []
+        }
+      ],
+      "idempotencyRequired": false,
+      "portalOriginRequired": false,
+      "sessionOriginRequired": true
     }
   }
 }

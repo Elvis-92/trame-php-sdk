@@ -23,6 +23,7 @@ enum OperationId: string
     case CreateBeneficiary = 'createBeneficiary';
     case CreatePayment = 'createPayment';
     case CreatePayout = 'createPayout';
+    case CreateProviderAccount = 'createProviderAccount';
     case CreateRule = 'createRule';
     case CreateRuleVersion = 'createRuleVersion';
     case CurrentPilotRequest = 'currentPilotRequest';
@@ -60,6 +61,8 @@ enum OperationId: string
     case ListOwnSessions = 'listOwnSessions';
     case ListPayments = 'listPayments';
     case ListPeriods = 'listPeriods';
+    case ListProviderAccounts = 'listProviderAccounts';
+    case ListProviderCatalog = 'listProviderCatalog';
     case ListRules = 'listRules';
     case ListSandboxScenarios = 'listSandboxScenarios';
     case ListStatementImports = 'listStatementImports';
@@ -98,4 +101,5 @@ enum OperationId: string
     case StoreFedapayWebhookSecret = 'storeFedapayWebhookSecret';
     case SubmitPilotRequest = 'submitPilotRequest';
     case SubmitStory = 'submitStory';
+    case UpdateProviderAccount = 'updateProviderAccount';
 }
